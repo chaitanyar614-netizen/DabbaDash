@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DabbaDash – Cloud Kitchen Dispatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>DabbaDash</h1>
+    <nav>
+      <button class="tab active" data-view="kitchen">Kitchen dashboard</button>
+      <button class="tab" data-view="customer">Customer tracking</button>
+    </nav>
+    <div class="actions">
+      <button id="newOrder" class="btn">+ New order</button>
+      <button id="resetDemo" class="btn ghost">Reset demo</button>
+    </div>
+  </header>
+
+  <section id="kpis" class="kpis" aria-label="Kitchen performance"></section>
+
+  <main id="view-kitchen" class="view">
+    <div class="toolbar">
+      <label>Brand
+        <select id="brandFilter">
+          <option value="all">All brands</option>
+          <option value="biryani">Biryani Box</option>
+          <option value="burger">Burger Den</option>
+          <option value="chai">Chai Point</option>
+        </select>
+      </label>
+      <span class="hint">Orders sync with the customer view every 3 seconds.</span>
+    </div>
+    <div id="board" class="board"></div>
+
+    <div class="panels">
+      <section class="panel"><h2>Delivery zone batcher</h2><div id="batcher"></div></section>
+      <section class="panel"><h2>Rider payout calculator</h2>
+        <label class="surge"><input type="checkbox" id="surge"> Peak-hour surge (1.5×)</label>
+        <div id="payouts"></div>
+      </section>
+      <section class="panel"><h2>Customer SMS simulator</h2><div id="sms"></div></section>
+    </div>
+  </main>
+
+  <main id="view-customer" class="view hidden">
+    <div class="toolbar">
+      <label>Track order <select id="orderSelect"></select></label>
+    </div>
+    <div id="tracker" class="tracker"></div>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
